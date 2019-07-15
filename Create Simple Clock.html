@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Create Simple Clock</title>
+</head>
+<style>
+    div{
+        margin:50px auto;
+        font-size: 50px;
+        /* align-items: center; */
+        text-align: center;
+        font-family:"Lucida Console";
+        font-weight: bold;
+        color:cornflowerblue;
+        text-shadow:3px 0px 5px cornflowerblue;
+    }
+</style>
+
+<body>
+    <div id="clock">
+
+    </div>
+    <script>
+        function timeShow() {
+            'use strict';
+            var newTime = new Date(),
+                hours = newTime.getHours(),
+                min = newTime.getMinutes(),
+                sec = newTime.getSeconds();
+            if (hours < 10) {
+                hours = "0" + hours;
+
+            }
+            if(hours>12){
+                hours/=12;
+                hours= "Pm" +hours;
+            }
+            if (min < 10) {
+                min = "0" + min;
+
+            }
+            if (sec < 10) {
+                sec = "0" + sec;
+
+            }
+            document.getElementById('clock').textContent = hours + ":" + min + ":" + sec;
+        }
+        window.onload = function(){
+            'use strict';
+            setInterval(timeShow,500);
+        }
+    </script>
+
+</body>
+
+</html>
